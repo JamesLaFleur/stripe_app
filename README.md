@@ -24,7 +24,7 @@ $ docker compose up
 
 Также можно посмотреть работающий проект по следующей ссылке: https://stripe-app-b1xx.onrender.com/
 
-Для просмотра Django моделей в Django Admin перейдите по следующей ссылке https://stripe-app-b1xx.onrender.com/admin и введидите следующие учетные данные: 
+Для просмотра Django моделей в Django Admin перейдите по следующей ссылке https://stripe-app-b1xx.onrender.com/admin и введите следующие учетные данные: 
 - Username: admin
 - Password: 12345
 
