@@ -1,0 +1,26 @@
+body {  
+    background-color: #e6e6e6; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 2rem;
+}
+
+.result {
+    margin: 64px auto;
+    padding: 32px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.error {
+    background-color: rgb(246, 170, 170);
+    border: 1px solid rgb(204, 60, 60);
+    color: rgb(82, 2, 2);
+}
+
+.success {
+    background-color: rgb(170, 246, 203);
+    border: 1px solid rgb(44, 168, 96);
+    color: rgb(1, 59, 45);
+}
