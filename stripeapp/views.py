@@ -4,7 +4,7 @@ from django.http.response import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic.base import TemplateView
 
-from django.views.generic import ListView #new
+from django.views.generic import ListView
 
 from .models import Item
 
@@ -16,19 +16,6 @@ class HomePageView(ListView):
     template_name = 'home.html'
     context_object_name = 'items'
 
-# class HomePageView(TemplateView):
-#     template_name = 'home.html'
-
-    # def get_context_data(self, **kwargs):
-    #     pk = self.kwargs.get("pk")
-    #     product = Item.objects.get(pk=pk)
-    #     context = super(HomePageView, self).get_context_data(**kwargs)
-    #     context.update({
-    #         "product": product,
-    #             "STRIPE_PUBLICHABLE_KEY": settings.STRIPE_PUBLICHABLE_KEY
-    #     })
-        # return context
-
 @csrf_exempt
 def stripe_config(request):
     if request.method == 'GET':
@@ -37,9 +24,7 @@ def stripe_config(request):
 
 
 @csrf_exempt
-def create_checkout_session(request): #new self args kwargs
-    # product_id = self.kwargs["pk"] #new
-    # product = Item.objects.get(id=product_id) #new
+def create_checkout_session(request):
     if request.method == 'GET':
         domain_url = settings.URL
         stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -103,9 +88,7 @@ def stripe_webhook(request):
     except stripe.error.SignatureVerificationError as e:
         return HttpResponse(status=400)
     print('MY MESSAGE: ', event['type'])
-    # Handle the checkout.session.completed event
     if event['type'] == 'checkout.session.completed':
         print("Payment was successful.")
-        # todo: run some custom code here
 
     return HttpResponse(status=200)
