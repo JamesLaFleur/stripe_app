@@ -62,7 +62,7 @@ def create_checkout_session(request): #new self args kwargs
                                 'quantity': 1,
                             'price_data': {
                                 'currency': "usd",
-                                'unit_amount': product.price,
+                                'unit_amount': int(product.price*100),
                                 'product_data': {
                                     'name': product.name,
                                     'description': product.description
